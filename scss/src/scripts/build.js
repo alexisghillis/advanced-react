@@ -8,10 +8,10 @@ const getComponents = () => {
     const types = ['atoms', 'molecules', 'organisms']
 
     types.forEach(type => {
-        const path = `scss/src/${type}`
+        const path = `src/${type}`
         const allFiles = require('fs').readdirSync(path).map(file => ({
-            input: `scss/src/${type}/${file}`,
-            output: `scss/src/lib/css/${file.slice(0, -4) + 'css'}`
+            input: `src/${type}/${file}`,
+            output: `src/lib/css/${file.slice(0, -4) + 'css'}`
         }))
 
         allComponents = [
@@ -38,7 +38,7 @@ const compile = (path, fileName) => {
     }
 }
 
-compile('scss/src/global.scss', 'scss/src/lib/css/global.css');
+compile('src/global.scss', 'src/lib/css/global.css');
 
 console.log(getComponents())
 
